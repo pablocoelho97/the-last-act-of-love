@@ -1,4 +1,4 @@
-import Home from "./pages/Home";
+import Home from "./Home";
 import { Toaster } from "sonner";
 
 function App() {
