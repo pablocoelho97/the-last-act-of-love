@@ -1,21 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/book-cover.jpg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Last Act of Love - A Memoir by Pablo</title>
-  <meta name="description" content="The Last Act of Love - A powerful memoir about love, obsession, and redemption. #1 Best Seller, Romance of the Year. Now available in English." />
-  <meta property="og:title" content="The Last Act of Love - A Memoir by Pablo" />
-  <meta property="og:description" content="A powerful memoir about love, obsession, and redemption. #1 Best Seller, Romance of the Year." />
-  <meta property="og:image" content="/book-cover.jpg" />
-  <meta property="og:type" content="website" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200;0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;0,8..60,800;0,8..60,900;1,8..60,200;1,8..60,300;1,8..60,400;1,8..60,500;1,8..60,600;1,8..60,700;1,8..60,800;1,8..60,900&family=Cinzel:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Last Act of Love - A Memoir by Pablo</title>
+    <meta name="description" content="The Last Act of Love - A brutally honest memoir about toxic love, jealousy, and the destruction of a relationship. #1 Best Seller, Romance of the Year 2025.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --background: #0a0a0a;
+            --foreground: #f5f5f5;
+            --primary: #d4af37;
+            --muted: #737373;
+            --card: #141414;
+            --border: #262626;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Source Serif 4', serif; background-color: var(--background); color: var(--foreground); line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: rgba(10, 10, 10, 0.8); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
+        nav .container { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+        .logo { font-family: 'Cinzel', serif; font-size: 14px; letter-spacing: 0.3em; color: var(--primary); }
+        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 24px; background: var(--primary); color: #000; text-decoration: none; font-family: 'Cinzel', serif; font-size: 12px; letter-spacing: 0.2em; font-weight: 600; border-radius: 6px; transition: all 0.3s; }
+        .btn:hover { background: #c9a030; transform: translateY(-2px); }
+        .btn-large { padding: 18px 36px; font-size: 14px; }
+        .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding-top: 80px; background: linear-gradient(to bottom, rgba(10,10,10,0.7), rgba(10,10,10,0.95)); }
+        .hero-grid { display: grid; grid-template-columns: 1fr; gap: 48px; align-items: center; }
+        @media (min-width: 1024px) { .hero-grid { grid-template-columns: 1fr 1fr; gap: 80px; } }
+        .hero-content { text-align: center; order: 2; }
+        @media (min-width: 1024px) { .hero-content { text-align: left; order: 1; } }
+        .hero-book { display: flex; justify-content: center; order: 1; }
+        @media (min-width: 1024px) { .hero-book { justify-content: flex-end; order: 2; } }
+        .book-wrapper { position: relative; }
+        .book-glow { position: absolute; inset: -16px; background: rgba(212, 175, 55, 0.2); filter: blur(60px); border-radius: 50%; }
+        .book-cover { position: relative; width: 280px; border-radius: 8px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 60px rgba(212, 175, 55, 0.3); }
+        @media (min-width: 768px) { .book-cover { width: 320px; } }
+        @media (min-width: 1024px) { .book-cover { width: 384px; } }
+        .badge { position: absolute; padding: 6px 12px; border-radius: 50px; font-size: 11px; font-weight: 700; display: flex; align-items: center; gap: 4px; }
+        .badge-bestseller { top: -16px; right: -16px; background: linear-gradient(to right, #f59e0b, #facc15); color: #000; }
+        .badge-romance { bottom: -8px; left: -16px; background: linear-gradient(to right, #9333ea, #ec4899); color: #fff; }
+        .badge-english { display: inline-flex; background: linear-gradient(to right, rgba(16, 185, 129, 0.2), rgba(20, 184, 166, 0.2)); border: 1px solid rgba(16, 185, 129, 0.3); padding: 8px 16px; border-radius: 50px; margin-bottom: 24px; }
+        .badge-english span { color: #34d399; font-size: 14px; font-weight: 500; letter-spacing: 0.05em; }
+        .subtitle { font-family: 'Cinzel', serif; color: var(--primary); font-size: 14px; letter-spacing: 0.4em; margin-bottom: 16px; }
+        h1 { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; line-height: 1.1; margin-bottom: 24px; }
+        @media (min-width: 768px) { h1 { font-size: 48px; } }
+        @media (min-width: 1024px) { h1 { font-size: 60px; } }
+        .gold-text { background: linear-gradient(to right, #f59e0b, #facc15, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .tagline { font-size: 20px; color: var(--muted); font-style: italic; font-weight: 300; margin-bottom: 32px; }
+        @media (min-width: 768px) { .tagline { font-size: 24px; } }
+        .awards-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-bottom: 32px; }
+        @media (min-width: 1024px) { .awards-row { justify-content: flex-start; } }
+        .award-badge { display: flex; align-items: center; gap: 8px; background: rgba(20, 20, 20, 0.5); border: 1px solid var(--border); padding: 8px 16px; border-radius: 8px; }
+        .award-badge svg { width: 16px; height: 16px; color: #f59e0b; fill: #f59e0b; }
+        .award-badge span { font-size: 14px; color: var(--muted); }
+        .cta-buttons { display: flex; flex-direction: column; gap: 16px; justify-content: center; }
+        @media (min-width: 640px) { .cta-buttons { flex-direction: row; } }
+        @media (min-width: 1024px) { .cta-buttons { justify-content: flex-start; } }
+        .quote-section { padding: 80px 0; background: var(--card); }
+        .quote { max-width: 800px; margin: 0 auto; text-align: center; font-family: 'Playfair Display', serif; font-size: 24px; font-style: italic; color: rgba(245, 245, 245, 0.9); line-height: 1.6; }
+        @media (min-width: 768px) { .quote { font-size: 32px; } }
+        @media (min-width: 1024px) { .quote { font-size: 40px; } }
+        .section { padding: 96px 0; }
+        .section-header { text-align: center; margin-bottom: 64px; }
+        .section-subtitle { font-family: 'Cinzel', serif; color: var(--primary); font-size: 14px; letter-spacing: 0.4em; margin-bottom: 16px; }
+        h2 { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; }
+        @media (min-width: 768px) { h2 { font-size: 40px; } }
+        @media (min-width: 1024px) { h2 { font-size: 48px; } }
+        .synopsis-content { max-width: 800px; margin: 0 auto; }
+        .synopsis-content p { font-size: 18px; color: var(--muted); margin-bottom: 24px; line-height: 1.8; }
+        .synopsis-content strong { color: var(--foreground); }
+        .synopsis-content em { color: var(--primary); }
+        .features-grid { display: grid; grid-template-columns: 1fr; gap: 32px; margin-top: 64px; }
+        @media (min-width: 768px) { .features-grid { grid-template-columns: 1fr 1fr; } }
+        .feature-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 32px; }
+        .feature-card h3 { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 600; color: var(--primary); margin-bottom: 16px; }
+        .feature-card ul { list-style: none; }
+        .feature-card li { display: flex; align-items: flex-start; gap: 12px; color: var(--muted); margin-bottom: 12px; }
+        .feature-card li::before { content: "•"; color: var(--primary); margin-top: 2px; }
+        .author-section { background: var(--card); }
+        .author-content { max-width: 800px; margin: 0 auto; text-align: center; }
+        .author-content p { font-size: 18px; color: var(--muted); margin-bottom: 24px; line-height: 1.8; }
+        .author-content .author-quote { color: var(--primary); font-style: italic; }
+        .reviews-grid { display: grid; grid-template-columns: 1fr; gap: 32px; }
+        @media (min-width: 768px) { .reviews-grid { grid-template-columns: repeat(3, 1fr); } }
+        .review-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 32px; }
+        .stars { display: flex; gap: 4px; margin-bottom: 16px; }
+        .stars svg { width: 16px; height: 16px; fill: #f59e0b; }
+        .review-card p { color: var(--muted); font-style: italic; margin-bottom: 16px; }
+        .review-card .reviewer { font-size: 14px; color: var(--primary); font-weight: 500; }
+        .cta-section { padding: 96px 0; background: linear-gradient(to bottom, var(--background), var(--card)); }
+        .cta-content { max-width: 700px; margin: 0 auto; text-align: center; }
+        .cta-badge { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(to right, rgba(245, 158, 11, 0.2), rgba(250, 204, 21, 0.2)); border: 1px solid rgba(245, 158, 11, 0.3); padding: 8px 16px; border-radius: 50px; margin-bottom: 24px; }
+        .cta-badge span { color: #f59e0b; font-size: 14px; font-weight: 500; }
+        .cta-content h2 { margin-bottom: 24px; }
+        .cta-content p { font-size: 20px; color: var(--muted); margin-bottom: 32px; }
+        footer { padding: 48px 0; border-top: 1px solid var(--border); }
+        footer .container { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+        @media (min-width: 768px) { footer .container { flex-direction: row; justify-content: space-between; } }
+        footer p { font-size: 14px; color: var(--muted); }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .animate { animation: fadeInUp 0.8s ease-out forwards; }
+        .delay-1 { animation-delay: 0.1s; } .delay-2 { animation-delay: 0.2s; } .delay-3 { animation-delay: 0.3s; } .delay-4 { animation-delay: 0.4s; } .delay-5 { animation-delay: 0.5s; }
+    </style>
 </head>
 <body>
-  <div id="root"></div>
-  <script type="module" src="/main.tsx"></script>
+    <nav><div class="container"><span class="logo">PABLO</span><a href="https://www.amazon.com/dp/B0GKXF6B6V" target="_blank" class="btn">BUY NOW</a></div></nav>
+    <section class="hero"><div class="container"><div class="hero-grid">
+        <div class="hero-book animate"><div class="book-wrapper"><div class="book-glow"></div><img src="book-cover.jpg" alt="The Last Act of Love - Book Cover" class="book-cover"><div class="badge badge-bestseller">#1 BEST SELLER</div><div class="badge badge-romance">ROMANCE OF THE YEAR</div></div></div>
+        <div class="hero-content">
+            <div class="badge-english animate delay-1"><span>NOW AVAILABLE IN ENGLISH</span></div>
+            <p class="subtitle animate delay-2">A MEMOIR</p>
+            <h1 class="animate delay-2">The Last Act<br><span class="gold-text">of Love</span></h1>
+            <p class="tagline animate delay-3">"This is the story of how I found her.<br>And how I erased her."</p>
+            <div class="awards-row animate delay-4">
+                <div class="award-badge"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><span>Literary Award Winner 2025</span></div>
+                <div class="award-badge"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><span>Top 1 in Romance</span></div>
+            </div>
+            <div class="cta-buttons animate delay-5"><a href="https://www.amazon.com/dp/B0GKXF6B6V" target="_blank" class="btn btn-large">GET YOUR COPY ON AMAZON</a></div>
+        </div>
+    </div></div></section>
+    <section class="quote-section"><div class="container"><blockquote class="quote">"What if the villain of your love story was you?"</blockquote></div></section>
+    <section id="synopsis" class="section"><div class="container">
+        <div class="section-header"><p class="section-subtitle">ABOUT THE BOOK</p><h2>A Brutal Confession</h2></div>
+        <div class="synopsis-content">
+            <p>Pablo Almeida Coelho had it all: the love of an incredible woman, wedding plans, a bright future ahead. <strong>Until his own toxic behavior destroyed everything.</strong></p>
+            <p>In this autobiographical account, Pablo exposes without filters how pathological jealousy, insecurity, and the need for control transformed the relationship of his dreams into a nightmare. He doesn't hide behind excuses. He doesn't seek your pity. He simply tells the truth — <em>even when that truth makes him look like a monster.</em></p>
+            <p>This is not a self-help book. This is a raw, unflinching look at how love can become obsession, how care can become control, and how the person you hurt the most might be the one you love the most.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card"><h3>What you'll discover</h3><ul><li>The anatomy of love that transforms into prison</li><li>How jealousy can destroy the most beautiful relationship</li><li>The moment when love becomes obsession</li><li>The price of not recognizing your own demons</li></ul></div>
+            <div class="feature-card"><h3>This book is for you if</h3><ul><li>You've ever felt consumed by jealousy</li><li>You want to understand toxic relationship patterns</li><li>You seek a story that doesn't sugarcoat reality</li><li>You believe in the power of radical honesty</li></ul></div>
+        </div>
+    </div></section>
+    <section id="author" class="section author-section"><div class="container">
+        <div class="section-header"><p class="section-subtitle">THE AUTHOR</p><h2>Pablo Almeida Coelho</h2></div>
+        <div class="author-content">
+            <p>Pablo is not a professional writer. He's not a psychologist or a relationship expert. He's simply a man who made terrible mistakes and decided to expose them to the world.</p>
+            <p>"The Last Act of Love" is his first book — and possibly the most difficult thing he's ever written. Not because of the writing itself, but because of what he had to face within himself to put it on paper.</p>
+            <p class="author-quote">"I wrote this book because I needed to. Because silence was killing me. And because I hope that, by reading my story, someone can avoid making the same mistakes I made."</p>
+        </div>
+    </div></section>
+    <section id="reviews" class="section"><div class="container">
+        <div class="section-header"><p class="section-subtitle">READER REVIEWS</p><h2>What Readers Are Saying</h2></div>
+        <div class="reviews-grid">
+            <div class="review-card"><div class="stars"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p>"Brutally honest. I couldn't put it down. This book made me reflect on my own relationships in ways I never expected."</p><span class="reviewer">— Sarah M.</span></div>
+            <div class="review-card"><div class="stars"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p>"A raw, unflinching look at toxic love. Pablo's courage to share his story is remarkable. Essential reading."</p><span class="reviewer">— Michael R.</span></div>
+            <div class="review-card"><div class="stars"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p>"This book changed how I see relationships. The honesty is painful but necessary. A must-read for everyone."</p><span class="reviewer">— Jennifer L.</span></div>
+        </div>
+    </div></section>
+    <section class="cta-section"><div class="container"><div class="cta-content">
+        <div class="cta-badge"><span>#1 BEST SELLER • ROMANCE OF THE YEAR 2025</span></div>
+        <h2>Ready to face the truth?</h2>
+        <p>Get your copy now and discover a story that will change how you see love, relationships, and yourself.</p>
+        <a href="https://www.amazon.com/dp/B0GKXF6B6V" target="_blank" class="btn btn-large">BUY NOW ON AMAZON</a>
+    </div></div></section>
+    <footer><div class="container"><span class="logo">PABLO</span><p>© 2025 Pablo Almeida Coelho. All rights reserved.</p></div></footer>
 </body>
 </html>
