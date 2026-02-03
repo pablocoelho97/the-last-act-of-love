@@ -411,7 +411,7 @@ export default function Home() {
             <motion.div variants={fadeInUp}>
               <Button
                 size="lg"
-                onClick={() => window.open("https://www.amazon.com/dp/B0GKXF6B6V", "_blank")}
+                onClick={() => window.open("https://www.amazon.com/dp/B0GKXBFLZT", "_blank")}
                 className="bg-primary text-primary-foreground hover:bg-primary/90 font-accent text-sm tracking-widest px-12 py-6"
               >
                 <ExternalLink className="w-5 h-5 mr-2" />
